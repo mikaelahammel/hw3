@@ -1,22 +1,22 @@
 class PostsController < ApplicationController
-
-  def show
-    #likely going to need to change this
-    @post = Post.all
-    @place = Place.find_by({"id" => params["id"]})
-    # render contacts/show view with details about Contact
-  end
+# I think I can delete the below but commenting out first
+  # def show
+  #   #likely going to need to change this
+  #   @post = Post.all
+  #   @place = Place.find_by({"id" => params["id"]})
+  #   # render contacts/show view with details about Contact
+  # end
 
   def new
     @post = Post.new
-    @post["place_id"] = params["id"]
+    @place = Place.find_by({ "id" => params["place_id"] })
+    @post["place_id"] = @place["id"]
   end
 
   def create
     # start with a new Post
     @post = Post.new
     
-
     # assign user-entered form data to Post's columns
     @post["title"] = params["post"]["title"]
     @post["description"] = params["post"]["description"]

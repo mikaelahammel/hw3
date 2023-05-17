@@ -6,7 +6,8 @@ class PlacesController < ApplicationController
   
   def show
     @place = Place.find_by({"id" => params["id"] })
-    #this is going to need to be changed
+    #the below isn't working
+    # @posts = Post.where({"place_id" => @place["id"]})
     @posts = Post.all
   end
 
