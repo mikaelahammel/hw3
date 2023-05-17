@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
 
   def show
-    @post = Post.find_by({"id" => params["id"]})
+    #likely going to need to change this
+    @post = Post.all
     @place = Place.find_by({"id" => params["id"]})
     # render contacts/show view with details about Contact
   end

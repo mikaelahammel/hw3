@@ -2,17 +2,14 @@
 
 <h1><%= @place["name"] %></h1>
 
-<ul>
-  <% for post in @posts %>
-  <!-- I think I need an if statement below but trying for now without? -->
-      <li>
-        <%= post["title"]%>
-        <%= post["posted_on"]%>
-        <%= post["description"]%>
-      </li>
-  <% end %>
-</ul> 
+
+<% for post in @posts %>
+<!-- I don't think we need an if statement below. I think this logic comes in the controller -->
+    <h2><%= post["title"] %></h2>
+    <p><%= post["posted_on"] %></p>
+    <p><%= post["description"] %></p>
+<% end %>
 
 <p>
-<a href="/posts/new">New Post</a>
+<a href="/posts/new?place_id=<%= @place["id"] %>">New Post</a>
 </p>
